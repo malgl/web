@@ -1,0 +1,145 @@
+<html>
+<head>
+<script>
+function DOC_LOAD()
+{
+	document.resume.platform.options.length=5;
+	document.resume.platform.options[0].value="1";
+	document.resume.platform.options[0].text="Windows NT";
+	document.resume.platform.options[1].value="2";
+	document.resume.platform.options[1].text="UNIX";
+	document.resume.platform.options[2].value="3";
+	document.resume.platform.options[2].text="OS/390";
+	document.resume.platform.options[3].value="4";
+	document.resume.platform.options[3].text="AS/400";
+	document.resume.platform.options[4].value="5";
+	document.resume.platform.options[4].text="OS/2";
+}
+function validCheck()
+{
+	var username=document.resume.username.value;
+	if(username=="")
+	{
+		alert("이름을 입력해 주세요.");
+		document.resume.username.focus();
+		return false;
+	}
+	var jumin1=document.resume.jumin1.value;
+	var jumin2=document.resume.jumin2.value;
+	if(jumin1==""||jumin1.length!=6)
+	{
+		alert("주민등록 번호 앞자리가 올바르지 않습니다.");
+		document.resume.jumin1.focus();
+		return false;
+	}
+	if(jumin2==""||jumin2.length!=7)
+	{
+		alert("주민등록 번호 뒷자리가 올바르지 않습니다.");
+		document.resume.jumin2.focus();
+		return false;
+	}
+	var graduate1=document.resume.graduate[0].checked;
+	var graduate2=document.resume.graduate[1].checked;
+	var graduate3=document.resume.graduate[2].checked;
+	var major=document.resume.major.value;
+	if(graduate1==false&&graduate2==false&&graduate3==false)
+	{
+		alert("학력을 선택해 주세요.");
+		document.resume.graduate[0].focus();
+		return false;
+	}
+	if(graduate1==true&&major!="0")
+	{
+		alert("대졸 이상만 전공을 선택해 주세요.");
+		document.resume.major.focus();
+		return false;
+	}
+	var experience=document.resume.experience.value;
+	if(experience=="")
+	{
+		alert("이력사항은 필수로 입력해 주세요.");
+		document.resume.experience.focus();
+		return false;
+	}
+	return true;
+}
+function main(arg)
+{
+	if(arg=="submit"&&validCheck())
+	{
+			document.resume.action="/servlet/TestServlet";
+			document.resume.target="left";
+			document.resume.submit();
+	}
+	else if(arg=="reset")document.resume.reset();
+}
+</script>
+</head>
+<body onload="DOC_LOAD()">
+<center>
+<form name=resume>
+<h2>이력서를 입력해 주세요</h2>
+<table border=4 cellpadding=5>
+<tr>
+	<td>[1] 이름
+	<td><input type=text name="username" maxlength=5 size=20>
+</tr>
+<tr>
+	<td>[2] 주민등록번호
+	<td>
+		<input type=password name="jumin1" maxlength=6 size=10> -
+		<input type=password name="jumin2" maxlength=7 size=10>
+		<font color=red>(개인 신상 보호를 위해 비밀보호 처리함.)
+</tr>
+<tr>
+	<td>[3] 학력
+	<td>
+		<input type=radio name="graduate" value="1">고졸
+		<input type=radio name="graduate" value="2">대졸
+		<input type=radio name="graduate" value="3">대학원졸
+</tr>
+<tr>
+	<td>[4] 전공
+	<td>
+		<select name="major">
+			<option value="0" selected>
+			<option value="1">컴퓨터공학과
+			<option value="2">산업공학과
+			<option value="3">전자공학과
+			<option value="4">기타 공학 계열
+			<option value="5">자연 과학 계열
+			<option value="6">어학계열
+			<option value="7">인문 사회 계열
+		</select>
+</tr>
+<tr>
+	<td>[5] 사용 가능 기술
+	<td>
+		<input type=checkbox name="skill" value="c">C/C++
+		<input type=checkbox name="skill" value="java">JAVA
+		<input type=checkbox name="skill" value="db">데이터베이스
+		<input type=checkbox name="skill" value="network">네트워크
+</tr>
+<tr>
+	<td>[6] 사용가능 플랫폼
+	<td>
+		<select multiple name="platform"></select>
+</tr>
+<tr>
+	<td>[7] 이력사항
+	<td><textarea name="experience" rows=10 cols=60></textarea>
+</tr>
+<tr>
+	<td>[8] 자기 소개서
+	<td><input type=file name="file" size=15>
+</tr>
+<tr>
+	<td colspan=2 align=center valign=center>
+		[9] <input type=button value="내용 전송" name="submitbutton" onclick="main('submit')">
+		[10] <input type=button value="다시 작성" name="clearbutton" onclick="main('reset')">
+</tr>
+</table>
+</form>
+</center>
+</body>
+</html>

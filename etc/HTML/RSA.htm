@@ -1,0 +1,35 @@
+<html>
+
+<head>
+<title>RSA</title>
+</head>
+
+<body>
+<h4>RSA 暗號化 技法</h4>
+DES System의 단점을 보완한 공개키 System RSA는 상당히 큰 정수의 소인수분해가 힘들다는 점을 이용한 暗號化 System이다.
+<br>p와 q가 매우 큰 소수이면 n=p*q의 계산은 용이한 반면, 합성수인 n에서 p와 q를 구하는 것이 아주 어렵다.
+<br>System의 개발자인 R. Rivest, A. Shamir, L. Adleman 의 첫 글자를 따서 붙여 RSA, 흔히 공개키 暗號化 System이라 한다.
+<br>素數 : 1보다 크며, 1과 그 수 자체 이외의 整數로는 똑 떨어지게 나눌 수 없는 整數(2·3·5·7·11… 따위)
+<p>RSA 暗號化 方法
+<ol><li>적당히 비슷하고 큰 소수 p, q를 선택한다.
+<li>공개키 n을 생성한다. (n=pq)
+<li>φ를 구한다. φ=(p-1)(q-1)
+<li>φ와 서로소인 또 다른 공개키 e를 찾는다. 1&lt;e&lt;φ, gcd(e,φ)=1
+<li>다음 조건을 만족하는 비밀키 d를 만든다. 1&lt;d&lt;φ, ed≡1(mod φ)
+<br>양의 정수 n에 대하여 두 정수 a,b의 차 a-b가 n의 배수 일 때, a와 b는 Modulus n에 합동이라 하고 a≡b(mod n) 으로 나타낸다.
+<br>정수 a를 n으로 나누었을 때의 나머지 r은 a mod n = r로 표현한다. 이때 r을 Modulus n에 대한 a의 잉여라 한다.
+<li>{e,n}을 공개키로 공개하고, {d,n}을 개인키로 안전하게 보관한다. p, q, φ 는 공개되지 않도록 한다.</ol>
+RSA암호화 Encoding (암호화 하려는 수는 m) : E(m) = m<sup>e</sup> mod n = c ( 0 ≤ c < n )
+<br>RSA복호화 Decoding : D(c) = c<sup>d</sup> mod n = m ( 0 ≤ m < n )
+<p>예) 암호화와 복호화
+<ol><li>소수 47와 71 선택
+<li>공개키 n=47*71=3337
+<li>φ=46*70=3220
+<li>1&lt;e&lt;φ 이고 φ=3220와 서로소인 임의의 정수 공개키 e=79 선정
+<li>1&lt;d&lt;φ, 79*d≡1(mod 3220) 인 비밀키 d=1019
+<li>공개키{79,3337}, 비밀키{1019,3337}</ol>
+RSA암호화 Encoding (암호화 하려는 수는 688) : E(688) = 688<sup>79</sup> mod 3337 = 1570
+<br>RSA복호화 Decoding : D(1570) = 1570<sup>1019</sup> mod 3337 = 688
+</body>
+
+</html>

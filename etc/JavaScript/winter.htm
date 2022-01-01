@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>winter</title>
+<script>
+num=2
+function timer()
+{
+	document.shot.src="winter"+num+".jpg"
+	num++
+	if(num>3)num=1
+}
+</script>
+</head>
+<body onLoad=setInterval("timer()",1000)>
+<p align=center><img src=winter1.jpg name=shot>
+</body>
+</html>

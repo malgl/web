@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Right Menu</title>
+<script>
+var def_bn_top=10;//위로부터의 간격
+function onload_move_r_bn()
+{
+	move_r_div=document.getElementById("right_menu");
+	move_r_div.style.right="5px";//오른쪽 끝에서의 간격
+	move_r_div.style.display='';
+	move_r_div.topInt=def_bn_top;
+	move_r_div.style.top=move_r_div.topInt;
+	def_bn_max=document.body.scrollHeight-move_r_div.scrollHeight-def_bn_top;
+	setTimeout("auto_move_r_bn()",100);
+}
+function auto_move_r_bn()
+{
+	var topchk=document.body.scrollTop+def_bn_top;
+	move_r_div.topInt+=Math.floor((topchk-move_r_div.topInt)/2);//이동속도 조절은 '2'를 변경
+	if(move_r_div.topInt>def_bn_max)move_r_div.topInt=def_bn_max;
+	if(move_r_div.topInt<def_bn_top)move_r_div.topInt=def_bn_top;
+	move_r_div.style.top=move_r_div.topInt;
+	setTimeout("auto_move_r_bn()",100);
+}
+setTimeout("onload_move_r_bn()",500);
+</script>
+</head>
+<body>
+a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z <br><br><br>
+a<br><br><br>b<br><br><br>c<br><br><br>d<br><br><br>e<br><br><br>f<br><br><br>g<br><br><br>h<br><br><br>i<br><br><br>k<br><br><br>l<br><br><br>m<br><br><br>n<br><br><br>o<br><br><br>p<br><br><br>q<br><br><br>r<br><br><br>s<br><br><br>t<br><br><br>u<br><br><br>v<br><br><br>w<br><br><br>x<br><br><br>y<br><br><br>z<br><br><br>a<br><br><br>b<br><br><br>c<br><br><br>d<br><br><br>e<br><br><br>f<br><br><br>g<br><br><br>h<br><br><br>i<br><br><br>k<br><br><br>l<br><br><br>m<br><br><br>n<br><br><br>o<br><br><br>p<br><br><br>q<br><br><br>r<br><br><br>s<br><br><br>t<br><br><br>u<br><br><br>v<br><br><br>w<br><br><br>x<br><br><br>y<br><br><br>z
+<div id=right_menu style=position:absolute;display:none;filter:alpha(opacity=80);opacity:0.8>
+	<img src=RightMenu6.gif>
+	<br>
+	<img src=RightMenu1.gif>
+	<br>
+	<img src=RightMenu2.gif>
+	<br>
+	<img src=RightMenu3.gif>
+	<br>
+	<img src=RightMenu4.gif>
+	<br>
+	<img src=RightMenu5.gif>
+</div>
+</body>
+</html>

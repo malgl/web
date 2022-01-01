@@ -1,0 +1,68 @@
+<html>
+
+<head>
+<title>C &amp; C++</title>
+</head>
+
+<body>
+<h4>연산자 우선순위와 결합순서</h4>
+<table>
+ <tr><td>연산순위<td>연산자<td>결합순서</tr>
+ <tr><td>1<td>() [] -&gt; .<td>→</tr>
+ <tr><td>2<td>! ~ ++ -- + - (type) * &amp; sizeof<td>←</tr>
+ <tr><td>3<td>* / %<td>→</tr>
+ <tr><td>4<td>+ -<td>→</tr>
+ <tr><td>5<td>&lt;&lt; &gt;&gt;<td>→</tr>
+ <tr><td>6<td>&lt; &lt;= &gt; &gt;=<td>→</tr>
+ <tr><td>7<td>== !=<td>→</tr>
+ <tr><td>8<td>&amp;<td>→</tr>
+ <tr><td>9<td>^<td>→</tr>
+ <tr><td>10<td>|<td>→</tr>
+ <tr><td>11<td>&amp;&amp;<td>→</tr>
+ <tr><td>12<td>||<td>→</tr>
+ <tr><td>13<td>? :<td>←</tr>
+ <tr><td>14<td>= += -= *= /= %= &= ^= |= &lt;&lt;= &gt;&gt;=<td>←</tr>
+ <tr><td>15<td>,<td>→</tr>
+</table>
+<h4>Doubld Pointer</h4>
+<p>int i=1000;
+<br>int*p=&amp;i;
+<br>int**pp=&amp;p;
+<table>
+ <tr><td width=150>0x2000<td width=50><td width=150>0x3000<td width=50><td width=150>0x4000<td width=50></tr>
+ <tr height=30><td bgcolor=yellow align=right>1000<td>i<td bgcolor=yellow align=right>0x2000<td>p<td bgcolor=yellow align=right>0x3000<td>pp</tr>
+ <tr><td align=right>i → 1000<td><td align=right>p → 0x2000<td><td align=right>pp → 0x3000<td></tr>
+ <tr><td align=right>&amp;i → 0x2000<td><td align=right>&amp;p → 0x3000<td><td align=right>&amp;pp → 0x4000<td></tr>
+ <tr><td><td><td align=right>*p → 1000<td><td align=right>*pp → 0x2000<td></tr>
+ <tr><td><td><td><td><td align=right>**pp → 1000<td></tr>
+</table>
+<p>Dynamic Allocation in C
+<br>void main(int argc,char*argv[])
+<br>{
+<ul>int i;
+<br>char**pp;
+<br>pp=malloc(5*sizeof(char*));
+<br>if(!pp){perror(&quot;Insufficient memory available\n&quot;);return;}
+<br>for(i=0;i&lt;5;i++)
+<br>{
+<ul>pp[i]=malloc(9);
+<br>if(!pp[i]){perror(&quot;Insufficient memory available\n&quot;);return;}
+</ul>}
+<br>// ...
+<br>for(i=0;i&lt;5;i++)free(pp[i]);
+<br>free(pp);
+</ul>}
+<p>Dynamic Allocation in C++
+<br>void main(int argc,char*argv[])
+<br>{
+<ul>int i;
+<br>char**pp;
+<br>pp=new char*[5];
+<br>for(i=0;i&lt;5;i++)pp[i]=new char[9];
+<br>// ...
+<br>for(i=0;i&lt;5;i++)delete[]pp[i];
+<br>delete[]pp;
+</ul>}
+</body>
+
+</html>

@@ -1,8 +1,8 @@
-var def_bn_top=60;//À§·ÎºÎÅÍÀÇ °£°Ý
+var def_bn_top=60;//ìœ„ë¡œë¶€í„°ì˜ ê°„ê²©
 function onload_move_r_bn()
 {
 	move_r_div=document.getElementById("right_menu");
-	move_r_div.style.right="5px";//¿À¸¥ÂÊ ³¡¿¡¼­ÀÇ °£°Ý
+	move_r_div.style.right="5px";//ì˜¤ë¥¸ìª½ ëì—ì„œì˜ ê°„ê²©
 	move_r_div.style.display='';
 	move_r_div.topInt=def_bn_top;
 	move_r_div.style.top=move_r_div.topInt;
@@ -12,7 +12,7 @@ function onload_move_r_bn()
 function auto_move_r_bn()
 {
 	var topchk=document.body.scrollTop+def_bn_top;
-	move_r_div.topInt+=Math.floor((topchk-move_r_div.topInt)/2);//ÀÌµ¿¼Óµµ Á¶ÀýÀº '2'¸¦ º¯°æ
+	move_r_div.topInt+=Math.floor((topchk-move_r_div.topInt)/2);//ì´ë™ì†ë„ ì¡°ì ˆì€ '2'ë¥¼ ë³€ê²½
 	if(move_r_div.topInt>def_bn_max)move_r_div.topInt=def_bn_max;
 	if(move_r_div.topInt<def_bn_top)move_r_div.topInt=def_bn_top;
 	move_r_div.style.top=move_r_div.topInt;

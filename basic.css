@@ -1,7 +1,28 @@
-body{background-color:white;}
-h3{color:SlateBlue;text-align:center;font-family:¹ÙÅÁ}
-p{font-family:HYhaeseo;font-size:15pt}
-A:link{color:IndianRed;text-decoration:none}
-A:visited{color:Green;text-decoration:none}
-A:active{color:SlateBlue;text-decoration:none}
-A:hover{color:black;text-decoration:underline}
+body {
+	background-color: white;
+}
+h3 {
+	color: SlateBlue;
+	text-align: center;
+	font-family: ë°”íƒ•;
+}
+p {
+	font-family: HYhaeseo;
+	font-size: 15pt;
+}
+A:link {
+	color: IndianRed;
+	text-decoration: none;
+}
+A:visited {
+	color: Green;
+	text-decoration: none;
+}
+A:active {
+	color: SlateBlue;
+	text-decoration: none;
+}
+A:hover {
+	color: black;
+	text-decoration: underline;
+}

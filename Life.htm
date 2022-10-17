@@ -1,14 +1,24 @@
-<html>
-<head>
-<title>Life</title>
-</head>
-<frameset cols=194,1*>
-<frame src=LifeIndex.htm noresize scrolling=no>
-<frame src=LifeHome.htm name=LifeHome>
-<noframes>
-<body>
-The capable browsers are needed to see this page.
-</body>
-</noframes>
-</frameset>
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Life</title>
+		<style>
+			iframe {
+				border: none;
+				position: fixed;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="display: flex;">
+			<div style="flex: 1; max-width: 200px;">
+				<iframe src="LifeIndex.htm"></iframe>
+			</div>
+			<div style="flex: 4;">
+				<iframe style="width: 80%" src="LifeHome.htm" name="LifeHome"></iframe>
+			</div>
+		</div>
+	</body>
 </html>

@@ -4,10 +4,10 @@ body {
 h3 {
 	color: SlateBlue;
 	text-align: center;
-	font-family: 바탕;
+	font-family: 'HCR Batang Regular', sans-serif;
 }
 p {
-	font-family: HYhaeseo;
+	font-family: HYhaeseo, sans-serif;
 	font-size: 15pt;
 }
 A:link {

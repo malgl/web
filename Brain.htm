@@ -1,14 +1,24 @@
-<html>
-<head>
-<title>머리쓰기</title>
-</head>
-<frameset cols="101, 1*">
-<frame src="BrainIndex.htm" noresize scrolling="no">
-<frame src="BrainHome.htm" name="BrainHome">
-<noframes>
-<body>
-<p> Page를 보려면, Frame을 볼 수 있는 Browser가 必要합니다.</p>
-</body>
-</noframes>
-</frameset>
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>머리쓰기</title>
+		<style>
+			iframe {
+				border: none;
+				position: fixed;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="display: flex;">
+			<div style="flex: 1; max-width: 100px;">
+				<iframe src="BrainIndex.htm"></iframe>
+			</div>
+			<div style="flex: 5;">
+				<iframe style="width: 80%" src="BrainHome.htm" name="BrainHome"></iframe>
+			</div>
+		</div>
+	</body>
 </html>

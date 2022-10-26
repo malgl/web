@@ -6,17 +6,17 @@
 		<style>
 			iframe {
 				border: none;
-				width: 100%;
+				width: 100vw;
 			}
 		</style>
 	</head>
 	<body>
-		<div style="display: grid; grid-template-rows: 40px 1fr;">
-			<div>
+		<div style="display: flex; flex-direction: column;">
+			<div style="max-height: 40px">
 				<iframe src="IndexIndex.htm"></iframe>
 			</div>
 			<div>
-				<iframe style="position: fixed; height: 100%;" src="IndexHome.htm" name="home"></iframe>
+				<iframe style="position: fixed; height: 95vh;" src="IndexHome.htm" name="home"></iframe>
 			</div>
 		</div>
 	</body>

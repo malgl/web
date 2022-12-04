@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
 body {
 	background-color: white;
 }
 h3 {
 	color: SlateBlue;
 	text-align: center;
-	font-family: 'HCR Batang Regular', sans-serif;
+	font-family: 'HCR Batang Regular', 'Nanum Gothic', sans-serif;
 }
 p {
-	font-family: HYhaeseo, sans-serif;
+	font-family: HYhaeseo, 'Nanum Gothic', sans-serif;
 	font-size: 15pt;
 }
 A:link {

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ca">
+	<head>
+		<meta charset="UTF-8">
+		<title>droop</title>
+		<style>
+			canvas {
+				border: 1px solid orange;
+				margin-right: 30px;
+			}
+			.sol2 {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+		</style>
+		<script>MathJax = {tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}}</script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+<!--
+		<script id="MathJax-script" async src="MathJax/tex-mml-chtml.js"></script>
+-->
+	</head>
+	<body>
+		$$\mathrm{Droop}\ \delta=-\frac{\frac{f_{final}-f_{initial}}{f_N}}{\frac{P_{final}-P_{initial}}{P_N}}=-\frac{\frac{\Delta f}{f_N}}{\frac{\Delta P}{P_N}}=-\frac{\varDelta f}{\varDelta P}\frac{P_N}{f_N}$$
+		$$-\frac{\varDelta f}{\varDelta P}=\frac{\delta f_N}{P_N},\quad-\frac{\varDelta P}{\varDelta f}=\frac{P_N}{\delta f_N}$$
+		<div class="sol2">
+			<canvas id="ex" width="270" height="180"></canvas>
+			<div>
+				$$-\frac{\varDelta P}{\varDelta f}=\frac{P_N}{\delta f_N}$$
+			</div>
+		</div>
+		$$-\frac{\Delta P_1}{\Delta f}=\frac{P_{1N}}{\delta_1f_N},\quad-\frac{\Delta P_2}{\Delta f}=\frac{P_{2N}}{\delta_2f_N},\quad-\frac{\Delta P_3}{\Delta f}=\frac{P_{3N}}{\delta_3f_N},\quad\cdots$$
+		$$-\frac{(\Delta P_1+\Delta P_2+\Delta P_3+\cdots)}{\Delta f}=\frac1{f_N}(\frac{P_{1N}}{\delta_1}+\frac{P_{2N}}{\delta_2}+\frac{P_{3N}}{\delta_3}+\cdots)=\frac1{f_N}\sum_{k=1}^n\frac{P_{kN}}{\delta_k}$$
+speed at no load $f_0,\quad\delta=-\frac{f_N-f_0}{P_N-0}\frac{P_N}{f_N}=\frac{f_0-f_N}{f_N},\quad f_0=f_N+\delta f_N$
+		<h4>Ex 1. $P_N=P_{initial}=180MW,\,f_N=f_{initial}=60Hz,\,\delta=0.06=6\%\to f_{final}=60.3Hz$ then $P_{final}=?$</h4>
+		<p>Solution 1.</p>
+		$$-\frac{\Delta P}{\Delta f}=\frac{P_N}{\delta f_N}$$
+		$$-\frac{P_{final}-180}{0.3}=\frac{180}{0.06\times60}=\frac{18}6\frac{100}6=50$$
+		$$P_{final}=180-50\frac3{10}=165MW$$
+		<p>Solution 2.</p>
+		<div class="sol2">
+			<canvas id="ex1" width="270" height="180"></canvas>
+			<div>
+				$$\frac x{3.6-0.3}=\frac{180}{3.6}$$
+				$$x=\frac{180}{3.6}3.3=165MW$$
+			</div>
+		</div>
+		<h4>Ex 2. $P_N=240MW,\,P_{initial}=240\frac34=180MW,\,f_N=f_{initial}=60Hz,\,\delta=0.06=6\%\to f_{final}=60.3Hz$ then $P_{final}=?$</h4>
+		<p>Solution 1.</p>
+		$$-\frac{\Delta P}{\Delta f}=\frac{P_N}{\delta f_N}$$
+		$$-\frac{P_{final}-180}{0.3}=\frac{240}{0.06\times60}=\frac{24}6\frac{100}6=\frac{200}3$$
+		$$P_{final}=180-\frac{200}3\frac3{10}=160MW$$
+		<p>Solution 2.</p>
+		<div class="sol2">
+			<canvas id="ex2" width="330" height="180"></canvas>
+			<div>
+				$$\frac x{2.7-0.3}=\frac{180}{2.7}$$
+				$$x=\frac{180}{2.7}2.4=160MW$$
+			</div>
+		</div>
+		<h4>Ex 3. $P_{1N}=P_{1initial}=180MW,\,\delta_1=0.06$<br>$P_{2N}=P_{2initial}=1080MW,\,\delta_2=0.05$<br>$P_{3N}=P_{3initial}=480MW,\,\delta_3=0.04$<br>$P_{4N}=P_{4initial}=270MW,\,\delta=0.03$<br>$f_N=f_{initial}=60Hz$</h4>
+		<ul>
+			<li>$f_{final}=60.3Hz$ then $P_{1final},\,P_{2final},\,P_{3final},\,P_{4final}$
+			$$\Delta P=-\frac{P_N}{\delta f_N}\Delta f$$
+			$$P_{1final}-180=-\frac{180}{0.06\times60}\frac3{10}=-15,\quad P_{1final}=165MW$$
+			$$P_{2final}-1080=-\frac{1080}{0.05\times60}\frac3{10}=-108,\quad P_{1final}=972MW$$
+			$$P_{3final}-480=-\frac{480}{0.04\times60}\frac3{10}=-60,\quad P_{3final}=420MW$$
+			$$P_{4final}-270=-\frac{270}{0.03\times60}\frac3{10}=-45,\quad P_{4final}=225MW$$
+			<div class="sol2">
+				<canvas id="ex3" width="630" height="260"></canvas>
+				<div>
+					$$\frac a{3.6-0.3}=\frac{180}{3.6},\quad a=\frac{180}{3.6}3.3=165MW$$
+					$$\frac b{3.0-0.3}=\frac{1080}{3.0},\quad b=\frac{1080}{3.0}2.7=972MW$$
+					$$\frac c{2.4-0.3}=\frac{480}{2.4},\quad c=\frac{480}{2.4}2.1=420MW$$
+					$$\frac d{1.8-0.3}=\frac{270}{1.8},\quad d=\frac{270}{1.8}1.5=225MW$$
+				</div>
+			</div>
+			<li>$P_{initial}=P_{1initial}+P_{2initial}=180+1080=1260MW\to P_{final}=1137MW$ then $f_{final},\,P_{1final},\,P_{2final}$
+			$$\Delta P=-\frac{\Delta f}{f_N}\sum_{k=1}^n\frac{P_{kN}}{\delta_k}$$
+			$$1137-1260=-\frac{\Delta f}{60}(\frac{180}{0.06}+\frac{1080}{0.05})=-410\Delta f,\quad\Delta f=\frac{123}{410}=\frac3{10},\quad f_{final}=60.3Hz$$
+			$$P_{1final}-180=-\frac{180}{0.06\times60}\frac3{10}=-15,\quad P_{1final}=165MW$$
+			$$P_{2final}-1080=-\frac{1080}{0.05\times60}\frac3{10}=-108,\quad P_{1final}=972MW$$
+			<li>$P_{initial}=P_{1initial}+P_{2initial}+P_{3initial}=180+1080+480=1740MW\to P_{final}=1557MW$ then $f_{final},\,P_{1final},\,P_{2final},\,P_{3final}$
+			$$\Delta P=-\frac{\Delta f}{f_N}\sum_{k=1}^n\frac{P_{kN}}{\delta_k}$$
+			$$1557-1740=-\frac{\Delta f}{60}(\frac{180}{0.06}+\frac{1080}{0.05}+\frac{480}{0.04})=-610\Delta f,\quad\Delta f=\frac{183}{610}=\frac3{10},\quad f_{final}=60.3Hz$$
+			$$P_{3final}-480=-\frac{480}{0.04\times60}\frac3{10}=-60,\quad P_{3final}=420MW$$
+			<li>$P_{initial}=P_{1initial}+P_{2initial}+P_{3initial}+P_{4initial}=180+1080+480+270=2010MW\to P_{final}=1782MW$ then $f_{final},\,P_{1final},\,P_{2final},\,P_{3final},\,P_{4final}$
+			$$\Delta P=-\frac{\Delta f}{f_N}\sum_{k=1}^n\frac{P_{kN}}{\delta_k}$$
+			$$1782-2010=-\frac{\Delta f}{60}(\frac{180}{0.06}+\frac{1080}{0.05}+\frac{480}{0.04}+\frac{270}{0.03})=-760\Delta f,\quad\Delta f=\frac{228}{760}=\frac3{10},\quad f_{final}=60.3Hz$$
+			$$P_{4final}-270=-\frac{270}{0.03\times60}\frac3{10}=-45,\quad P_{4final}=225MW$$
+		</ul>
+		<h4>Ex 4. $P_{1N}=240MW,\,P_{1initial}=240\frac34=180MW,\,\delta_1=0.06$<br>$P_{2N}=P_{2initial}=1080MW,\,\delta_2=0.05$<br>$P_{3N}=600MW,\,P_{3initial}=600\frac45=480MW,\,\delta_3=0.04$<br>$P_{4N}=540MW,\,P_{4initial}=540\frac12=270MW,\,\delta_4=0.03$<br>$f_N=f_{initial}=60Hz$</h4>
+		<ul>
+			<li>$f_{final}=60.3Hz$ then $P_{1final},\,P_{2final},\,P_{3final},\,P_{4final}$
+			$$\Delta P=-\frac{P_N}{\delta f_N}\Delta f$$
+			$$P_{1final}-180=-\frac{240}{0.06\times60}\frac3{10}=-20,\quad P_{1final}=160MW$$
+			$$P_{2final}-1080=-\frac{1080}{0.05\times60}\frac3{10}=-108,\quad P_{1final}=972MW$$
+			$$P_{3final}-480=-\frac{600}{0.04\times60}\frac3{10}=-75,\quad P_{3final}=405MW$$
+			$$P_{4final}-270=-\frac{540}{0.03\times60}\frac3{10}=-90,\quad P_{4final}=180MW$$
+			<div class="sol2">
+				<canvas id="ex4" width="630" height="260"></canvas>
+				<div>
+					$$\frac a{2.7-0.3}=\frac{180}{2.7},\quad a=\frac{180}{2.7}2.4=160MW$$
+					$$\frac b{3.0-0.3}=\frac{1080}{3.0},\quad b=\frac{1080}{3.0}2.7=972MW$$
+					$$\frac c{1.92-0.3}=\frac{480}{1.92},\quad c=\frac{480}{1.92}1.62=405MW$$
+					$$\frac d{0.9-0.3}=\frac{270}{0.9},\quad d=\frac{270}{0.9}0.6=180MW$$
+				</div>
+			</div>
+			<li>$P_{initial}=P_{1initial}+P_{2initial}=180+1080=1260MW\to P_{final}=1132MW$ then $f_{final},\,P_{1final},\,P_{2final}$
+			$$\Delta P=-\frac{\Delta f}{f_N}\sum_{k=1}^n\frac{P_{kN}}{\delta_k}$$
+			$$1132-1260=-\frac{\Delta f}{60}(\frac{240}{0.06}+\frac{1080}{0.05})=-\frac{1280}3\Delta f,\quad\Delta f=128\frac3{1280}=\frac3{10},\quad f_{final}=60.3Hz$$
+			$$P_{1final}-180=-\frac{240}{0.06\times60}\frac3{10}=-20,\quad P_{1final}=160MW$$
+			$$P_{2final}-1080=-\frac{1080}{0.05\times60}\frac3{10}=-108,\quad P_{1final}=972MW$$
+			<li>$P_{initial}=P_{1initial}+P_{2initial}+P_{3initial}=180+1080+480=1740MW\to P_{final}=1537MW$ then $f_{final},\,P_{1final},\,P_{2final},\,P_{3final}$
+			$$\Delta P=-\frac{\Delta f}{f_N}\sum_{k=1}^n\frac{P_{kN}}{\delta_k}$$
+			$$1537-1740=-\frac{\Delta f}{60}(\frac{240}{0.06}+\frac{1080}{0.05}+\frac{600}{0.04})=-\frac{2030}3\Delta f,\quad\Delta f=203\frac3{2030}=\frac3{10},\quad f_{final}=60.3Hz$$
+			$$P_{3final}-480=-\frac{600}{0.04\times60}\frac3{10}=-75,\quad P_{3final}=405MW$$
+			<li>$P_{initial}=P_{1initial}+P_{2initial}+P_{3initial}+P_{4initial}=180+1080+480+270=2010MW\to P_{final}=1717MW$ then $f_{final},\,P_{1final},\,P_{2final},\,P_{3final},\,P_{4final}$
+			$$\Delta P=-\frac{\Delta f}{f_N}\sum_{k=1}^n\frac{P_{kN}}{\delta_k}$$
+			$$1717-2010=-\frac{\Delta f}{60}(\frac{240}{0.06}+\frac{1080}{0.05}+\frac{600}{0.04}+\frac{540}{0.03})=-\frac{2930}3\Delta f,\quad\Delta f=293\frac3{2930}=\frac3{10},\quad f_{final}=60.3Hz$$
+			$$P_{4final}-270=-\frac{540}{0.03\times60}\frac3{10}=-90,\quad P_{4final}=180MW$$
+		</ul>
+		<script>
+			let canvas = document.getElementById("ex")
+			// console.log(canvas)
+			let ctx = canvas.getContext("2d")
+			ctx.beginPath()
+			ctx.moveTo(30, 30)
+			ctx.lineTo(30, 150)
+			ctx.lineTo(230, 150)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "navy"
+			ctx.moveTo(30, 42)
+			ctx.lineTo(210, 150)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "green"
+			ctx.setLineDash([5, 2, 2, 2])
+			ctx.moveTo(30, 78)
+			ctx.lineTo(90, 78)
+			ctx.lineTo(90, 150)
+			ctx.moveTo(30, 114)
+			ctx.lineTo(150, 114)
+			ctx.lineTo(150, 150)
+			ctx.stroke();
+			ctx.font = "17px sans-serif"
+			ctx.fillText("Hz", 20, 25)
+			ctx.fillText("MW", 235, 155)
+			ctx.fillText("0", 20, 165)
+			ctx.fillText("Δf", 5, 105)
+			ctx.fillText("δf", 5, 50)
+			ctx.fillText("P", 205, 170)
+			ctx.fillText("ΔP", 110, 170)
+			ctx.font = "9px sans-serif"
+			ctx.fillText("N", 20, 55)
+			ctx.fillText("N", 210, 175)
+			canvas = document.getElementById("ex1")
+			ctx = canvas.getContext("2d")
+			ctx.beginPath()
+			ctx.moveTo(30, 30)
+			ctx.lineTo(30, 150)
+			ctx.lineTo(230, 150)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "navy"
+			ctx.moveTo(30, 42)
+			ctx.lineTo(210, 150)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "green"
+			ctx.setLineDash([5, 2, 2, 2])
+			ctx.moveTo(30, 141)
+			ctx.lineTo(195, 141)
+			ctx.lineTo(195, 150)
+			ctx.stroke();
+			ctx.font = "17px sans-serif"
+			ctx.fillText("Hz", 20, 25)
+			ctx.fillText("MW", 235, 155)
+			ctx.fillText("0", 20, 165)
+			ctx.fillText("0.3", 5, 145)
+			ctx.fillText("3.6", 5, 50)
+			ctx.fillText("180", 205, 170)
+			ctx.fillText("x", 190, 165)
+			canvas = document.getElementById("ex2")
+			ctx = canvas.getContext("2d")
+			ctx.beginPath()
+			ctx.moveTo(30, 30)
+			ctx.lineTo(30, 150)
+			ctx.lineTo(290, 150)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "navy"
+			ctx.moveTo(30, 42)
+			ctx.lineTo(270, 150)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.setLineDash([5, 5])
+			ctx.moveTo(30, 69)
+			ctx.lineTo(210, 150)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "green"
+			ctx.setLineDash([5, 2, 2, 2])
+			ctx.moveTo(30, 141)
+			ctx.lineTo(190, 141)
+			ctx.lineTo(190, 150)
+			ctx.stroke();
+			ctx.font = "17px sans-serif"
+			ctx.fillText("Hz", 20, 25)
+			ctx.fillText("MW", 295, 155)
+			ctx.fillText("0", 20, 165)
+			ctx.fillText("0.3", 5, 145)
+			ctx.fillText("3.6", 5, 50)
+			ctx.fillText("2.7", 5, 75)
+			ctx.fillText("240", 260, 170)
+			ctx.fillText("180", 205, 170)
+			ctx.fillText("x", 185, 165)
+			canvas = document.getElementById("ex3")
+			ctx = canvas.getContext("2d")
+			ctx.beginPath()
+			ctx.moveTo(30, 30)
+			ctx.lineTo(30, 230)
+			ctx.lineTo(590, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "navy"
+			ctx.moveTo(30, 50)
+			ctx.lineTo(120, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "maroon"
+			ctx.moveTo(30, 80)
+			ctx.lineTo(570, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "olive"
+			ctx.moveTo(30, 110)
+			ctx.lineTo(270, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "purple"
+			ctx.moveTo(30, 140)
+			ctx.lineTo(165, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "green"
+			ctx.setLineDash([5, 2, 2, 2])
+			ctx.moveTo(30, 215)
+			ctx.lineTo(516, 215)
+			ctx.lineTo(516, 230)
+			ctx.moveTo(240, 215)
+			ctx.lineTo(240, 230)
+			ctx.moveTo(142.5, 215)
+			ctx.lineTo(142.5, 230)
+			ctx.moveTo(112.5, 215)
+			ctx.lineTo(112.5, 230)
+			ctx.stroke();
+			ctx.font = "17px sans-serif"
+			ctx.fillText("Hz", 20, 25)
+			ctx.fillText("MW", 595, 235)
+			ctx.fillText("0", 20, 245)
+			ctx.fillText("0.3", 5, 220)
+			ctx.fillText("1.8", 5, 145)
+			ctx.fillText("2.4", 5, 115)
+			ctx.fillText("3.0", 5, 85)
+			ctx.fillText("3.6", 5, 55)
+			ctx.fillText("a", 100, 245)
+			ctx.fillText("180", 110, 250)
+			ctx.fillText("d", 142, 245)
+			ctx.fillText("270", 160, 250)
+			ctx.fillText("c", 235, 245)
+			ctx.fillText("480", 260, 250)
+			ctx.fillText("b", 510, 245)
+			ctx.fillText("1080", 550, 250)
+			canvas = document.getElementById("ex4")
+			ctx = canvas.getContext("2d")
+			ctx.beginPath()
+			ctx.moveTo(30, 30)
+			ctx.lineTo(30, 230)
+			ctx.lineTo(590, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "maroon"
+			ctx.moveTo(30, 80)
+			ctx.lineTo(570, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "navy"
+			ctx.setLineDash([5, 5])
+			ctx.moveTo(30, 95)
+			ctx.lineTo(120, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "olive"
+			ctx.moveTo(30, 134)
+			ctx.lineTo(270, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "purple"
+			ctx.moveTo(30, 185)
+			ctx.lineTo(165, 230)
+			ctx.stroke()
+			ctx.beginPath()
+			ctx.strokeStyle = "green"
+			ctx.setLineDash([5, 2, 2, 2])
+			ctx.moveTo(30, 215)
+			ctx.lineTo(516, 215)
+			ctx.lineTo(516, 230)
+			ctx.moveTo(232.5, 215)
+			ctx.lineTo(232.5, 230)
+			ctx.moveTo(120, 215)
+			ctx.lineTo(120, 230)
+			ctx.moveTo(110, 215)
+			ctx.lineTo(110, 230)
+			ctx.stroke();
+			ctx.font = "17px sans-serif"
+			ctx.fillText("Hz", 20, 25)
+			ctx.fillText("MW", 595, 235)
+			ctx.fillText("0", 20, 245)
+			ctx.fillText("0.3", 5, 220)
+			ctx.fillText("0.9", 5, 190)
+			ctx.fillText("1.92", 0, 140)
+			ctx.fillText("2.7", 5, 100)
+			ctx.fillText("3.0", 5, 85)
+			ctx.fillText("a", 95, 245)
+			ctx.fillText("180", 105, 250)
+			ctx.fillText("d", 135, 245)
+			ctx.fillText("270", 160, 250)
+			ctx.fillText("c", 235, 245)
+			ctx.fillText("480", 260, 250)
+			ctx.fillText("b", 510, 245)
+			ctx.fillText("1080", 550, 250)
+		</script>
+	</body>
+</html>
